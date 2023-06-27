@@ -10,6 +10,39 @@ let menuItems = [
   'Log Out'
 ];
 
+
+//可以将所有的内容放在一个function中
+
+function menuMaker(item){
+  const menu = document.createElement("div")
+  const ul = document.createElement("ul")
+  menu.className = "menu"
+  menu.appendChild(ul)
+
+ item.forEach(x=>{
+   const list = document.createElement("li")
+   list.textContent =x
+   ul.appendChild(list)
+   
+ })
+  const image = document.querySelector(".menu-button")
+  image.addEventListener("click", () => {
+    menu.classList.toggle("menu--open")
+
+  })
+  return menu
+
+}
+document
+    .querySelector(".header")
+    .appendChild(menuMaker(menuItems))
+
+
+
+
+
+
+
 /*
   Step 1: Write a component called 'menuMaker' to create a menu like the markup below:
 
